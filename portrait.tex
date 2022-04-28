@@ -1,0 +1,216 @@
+% Gemini theme
+% See: https://rev.cs.uchicago.edu/k4rtik/gemini-uccs
+% A fork of https://github.com/anishathalye/gemini
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=a0,scale=1.405]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{uit}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage[italic]{mathastext}
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+% for three columns: \colwidth=0.3 and \sepwidth = 0.025
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.02\paperwidth}
+\setlength{\colwidth}{0.47\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+
+% ====================
+% Title
+% ====================
+
+\title{\LARGE An UiT color themed poster template}
+
+\author{Author1 \inst{1,2,3} \and Author2 \inst{3,4,5}}
+
+\institute[shortinst]{\inst{1} University of Tromsø, Norway. \samelineand  \inst{2} University of Fun, Norway. \samelineand  \inst{3} University of Love, Norway. \\ \samelineand\inst{4} University of Ethics, Germany. \samelineand  \inst{5}  University of Food, UK.}
+
+
+
+% ====================
+% Footer (optional)
+% ====================
+
+\footercontent{
+   \href{https://www.example.com}{https://www.example.com} \hfill
+  ABC Conference 2025, Tromsø --- XYZ-1234 \hfill
+  \href{mailto:your.name@uit.no}{your.name@uit.no}}
+% (can be left out to remove footer)
+
+
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+% ====================
+% Logo (optional)
+% ====================
+%Play around with the position
+% more UiT logos: https://uit.no/ansatte/grafiskprofil#innhold_639960
+\addtobeamertemplate{headline}{}
+{
+    \begin{tikzpicture}[remember picture,overlay]
+    %left
+      \node [anchor=north west, inner sep=3cm] at ([xshift=-1.0cm,yshift=1.5cm]current page.north west)
+      {\includegraphics[height=3.7cm]{logos/UiT_Logo_Bok_2l_Hvit.pdf}}; 
+      %right
+      \node [anchor=north east, inner sep=3cm] at ([xshift=-1.0cm,yshift=1.5cm]current page.north east)
+      {\includegraphics[height=5.5cm]{logos/uit.pdf}};
+    \end{tikzpicture}
+}
+%\vspace*{ 1cm }
+\begin{frame}[t]
+%\vspace*{ 1cm }
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+  \begin{block}{A normal block}
+    Aliquam laoreet lobortis enim, faucibus consectetur elit aliquam lobortis. Phasellus non felis dui. Aliquam erat volutpat. Ut vel diam sodales, molestie neque sed, feugiat leo. In vehicula blandit rhoncus. Duis facilisis urna non eleifend tincidunt. Maecenas consectetur lobortis eros. Vivamus varius, nisl et blandit commodo, lorem lacus vestibulum nisi, sollicitudin semper enim mauris a orci. Maecenas quam est, cursus sit amet arcu quis, dapibus commodo risus. Pellentesque quis egestas lectus. Curabitur et diam nisi. Suspendisse eu blandit eros. Proin congue, diam non scelerisque elementum, lorem lectus auctor justo, a tincidunt urna quam quis augue. Mauris est neque, sagittis quis libero at, molestie tincidunt ipsum. Sed non sollicitudin quam, nec efficitur nisl.
+   
+
+  \end{block}
+  \begin{alertblock}{A highlighted block with a figure}
+    \heading{Subheading}
+       Maecenas quis dolor vel tellus dictum suscipit a eu urna. Praesent consequat urna diam, vel interdum risus molestie in. Vivamus venenatis neque sit amet massa semper consequat. Cras dapibus purus dui, sit amet venenatis magna consequat nec. Nunc sed augue enim. Phasellus commodo arcu interdum, rhoncus augue eu, fermentum mi. Morbi id imperdiet mauris. In quam enim, dictum eget dolor at, elementum consequat est. Suspendisse varius lacus vitae risus auctor finibus ac ut velit. Integer viverra tempus hendrerit. Sed quis venenatis orci. Aliquam efficitur auctor velit a pulvinar. 
+    \begin{table}
+      \centering
+       \caption{A table caption.}
+      \begin{tabular}{l r r c}
+        \toprule
+        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
+        \midrule
+        Foo & 13.37 & 384,394 & $\alpha$ \\
+        Bar & 2.17 & 1,392 & $\beta$ \\
+        Baz & 3.14 & 83,742 & $\delta$ \\
+        Qux & 7.59 & 974 & $\gamma$ \\
+        \bottomrule
+      \end{tabular}
+     
+    \end{table}
+        In quam enim, dictum eget dolor at, elementum consequat est. Suspendisse varius lacus vitae risus auctor finibus ac ut velit. Integer viverra tempus hendrerit. Sed quis venenatis orci. Aliquam efficitur auctor velit a pulvinar. 
+    \heading{Subheading}
+
+    \begin{itemize}
+      \item \textbf{Fusce dapibus tellus} vel tellus semper finibus. In
+        consequat, nibh sed mattis luctus, augue diam fermentum lectus.
+      \item \textbf{In euismod erat metus} non ex. Vestibulum luctus augue in
+        mi condimentum, at sollicitudin lorem viverra.
+      \item \textbf{Suspendisse vulputate} mauris vel placerat consectetur.
+        Mauris semper, purus ac hendrerit molestie, elit mi dignissim odio, in
+        suscipit felis sapien vel ex.
+    \end{itemize}
+    
+    
+\begin{align*}
+P(x,t) \approx
+\int  P(x,t) \Psi\left(x, \Delta x \right)  - \Delta t \, \Psi\left(x, \Delta x \right) \frac{ \partial P(x,t) }{ \partial t}  - \Delta x_{i} \, \frac{\partial }{\partial x_{i}}  P(x,t) \Psi\left(x, \Delta x \right)   \\
+ + \frac{1}{2} \Delta x_{i} \Delta x_{j} \, \frac{\partial^2}{\partial x_{i} \partial x_{j} }  P(x,t) \Psi\left(x, \Delta x \right) \; \, \mathrm d^D \! \left( \Delta x \right)
+\end{align*}
+
+Ut vel diam sodales, molestie neque sed, feugiat leo. In vehicula blandit rhoncus. Duis facilisis urna non eleifend tincidunt. Maecenas consectetur lobortis eros. Vivamus varius, nisl et blandit commodo, lorem lacus vestibulum nisi, sollicitudin semper enim mauris a orci. Maecenas quam est, cursus sit amet arcu quis, dapibus commodo risus. Pellentesque quis egestas lectus. Curabitur et diam nisi. Suspendisse eu blandit eros. Proin congue, diam non scelerisque elementum, lorem lectus auctor justo, a tincidunt urna quam quis augue. Mauris est neque, sagittis quis libero at, molestie tincidunt ipsum. Sed non sollicitudin quam, nec efficitur nisl. Vel tellus semper finibus. In
+        consequat, nibh sed mattis luctus, augue diam fermentum lectus.
+  \end{alertblock}
+          
+    \vspace{0pt}
+    \end{column}
+
+\separatorcolumn
+
+
+\begin{column}{\colwidth}
+    \begin{alertblock}{A highlighted block with a figure and equation}
+
+   Donec pellentesque efficitur purus, nec placerat lacus maximus id. Phasellus vel odio in urna dapibus tincidunt in non nulla. Mauris vulputate est sollicitudin placerat bibendum. Nunc purus dui, lobortis non egestas sit amet, ullamcorper eget turpis. Sed orci ligula, finibus id turpis sed, luctus congue eros. Duis id mauris a eros luctus cursus quis vel turpis. Vivamus eu augue at leo fringilla egestas. Sed ac dolor et nunc mollis tincidunt. Phasellus eu augue sit amet libero efficitur tempus. Suspendisse potenti. 
+    \begin{figure}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+            scale only axis,
+            no markers,
+            domain=0:2*pi,
+            samples=100,
+            axis lines=center,
+            axis line style={-},
+            ticks=none]
+          \addplot[red] {sin(deg(x))};
+          \addplot[blue] {cos(deg(x))};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Another figure caption.}
+    %\label{fig:Figure_label}
+    \end{figure}
+    
+Suspendisse eu blandit eros. Proin congue, diam non scelerisque elementum, lorem lectus auctor justo, a tincidunt urna quam quis augue. Mauris est neque, sagittis quis libero at, molestie tincidunt ipsum. Sed non sollicitudin quam, nec efficitur nisl. Mauris facilisis, nibh egestas viverra tristique, leo magna bibendum turpis, sed elementum turpis sapien vel lacus. Duis condimentum varius lacus, fermentum malesuada lacus vehicula quis. Pellentesque aliquam ligula id justo volutpat, vitae accumsan lacus rhoncus. Donec vestibulum risus non enim consectetur porta. 
+\begin{align*}
+    \frac{\partial}{\partial t} P(\mathbf{x},t) = -\sum_{i=1}^{D} \frac{\partial}{\partial x_i} \Big[ A_i(x_1, \ldots, x_D) P(\mathbf{x},t) \Big] + \\
+    \frac{1}{2} \sum_{i=1}^{D} \sum_{j=1}^{D} \frac{\partial^2}{\partial x_i \, \partial x_j} \Big[ B_{ij}(x_1, \ldots, x_D) P(\mathbf{x},t) \Big]
+\end{align*}
+	
+Ut consequat nibh ut sapien rhoncus tincidunt. Sed lectus est, volutpat ac nisi non, viverra scelerisque justo. Cras sit amet volutpat justo. Integer porttitor lectus et dolor sagittis, quis imperdiet felis vehicula. Donec varius justo sed dui sagittis, eget pretium elit tincidunt. 
+  \end{alertblock}
+  \begin{block}{A normal block}
+
+
+    \begin{enumerate}
+      \item \textbf{Morbi mauris purus}, egestas at vehicula et, convallis
+        accumsan orci. Orci varius natoque penatibus et magnis dis parturient
+        montes.
+      \item \textbf{Cras vehicula blandit urna ut maximus}. Aliquam blandit nec
+        massa ac sollicitudin. Curabitur cursus, metus nec imperdiet bibendum,
+        velit lectus faucibus dolor.
+      \item \textbf{Vestibulum et massa diam}. Phasellus fermentum augue non
+        nulla accumsan.
+    \end{enumerate}
+
+
+   \begin{figure}
+      \centering
+      \begin{tikzpicture}[scale=6]
+        \draw[step=0.25cm,color=gray] (-1,-1) grid (1,1);
+        \draw (1,0) -- (0.2,0.2) -- (0,1) -- (-0.2,0.2) -- (-1,0)
+          -- (-0.2,-0.2) -- (0,-1) -- (0.2,-0.2) -- cycle;
+      \end{tikzpicture}
+      \caption{A figure caption.}
+      %\label{fig:Figure_label}
+    \end{figure}
+
+Aliquam laoreet lobortis enim, faucibus consectetur elit aliquam lobortis. Phasellus non felis dui. Aliquam erat volutpat. Ut vel diam sodales, molestie neque sed, feugiat leo. In vehicula blandit rhoncus. Duis facilisis urna non eleifend tincidunt. Maecenas consectetur lobortis eros. Vivamus varius, nisl et blandit commodo, lorem lacus vestibulum nisi, sollicitudin semper enim mauris a orci. Maecenas quam est, cursus sit amet arcu quis, dapibus commodo risus. Pellentesque quis egestas lectus. Curabitur et diam nisi. 
+
+
+  \end{block}
+
+
+\vspace{0pt}
+
+\end{column}
+
+\separatorcolumn
+\end{columns}
+\end{frame}
+
+\end{document}
